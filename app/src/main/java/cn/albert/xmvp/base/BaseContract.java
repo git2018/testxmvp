@@ -12,7 +12,8 @@ public interface BaseContract {
         int getLayoutId();
     }
 
-    interface IPresent<V> {
+    interface IPresenter<V>{
+        V getView();
         void attachView(V view);
         void detachView();
         boolean hasView();

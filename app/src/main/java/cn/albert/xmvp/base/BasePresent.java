@@ -2,7 +2,7 @@ package cn.albert.xmvp.base;
 
 import java.lang.ref.WeakReference;
 
-public class BasePresent<V extends BaseContract.IView> implements BaseContract.IPresent<V> {
+public class BasePresent<V extends BaseContract.IView> implements BaseContract.IPresenter<V> {
     private WeakReference<V> v;
 
     @Override
