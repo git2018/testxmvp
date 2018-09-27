@@ -23,6 +23,7 @@ public abstract class BaseActivity<P extends BaseContract.IPresenter> extends Rx
         }
     }
 
+    @Override
     public P getPresenter() {
         if (p == null) {
             p = BaseUtil.getT(this, 0);

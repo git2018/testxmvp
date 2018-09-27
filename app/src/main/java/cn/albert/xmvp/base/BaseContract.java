@@ -1,18 +1,17 @@
 package cn.albert.xmvp.base;
 
-import android.os.Bundle;
-
 public interface BaseContract {
 
     interface IModel {
     }
 
 
-    interface IView {
+    interface IView<P extends IPresenter> {
         int getLayoutId();
+        P getPresenter();
     }
 
-    interface IPresenter<V>{
+    interface IPresenter<V extends IView>{
         V getView();
         void attachView(V view);
         void detachView();

@@ -29,7 +29,7 @@ public abstract class BaseFragment<P extends BaseContract.IPresenter> extends Rx
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        getPresent();
+        getPresenter();
 
         if (rootView == null) {
             rootView = inflater.inflate(getLayoutId(), container, false);
@@ -39,7 +39,8 @@ public abstract class BaseFragment<P extends BaseContract.IPresenter> extends Rx
         return rootView;
     }
 
-    public P getPresent() {
+    @Override
+    public P getPresenter() {
         if (p == null) {
             p = BaseUtil.getT(this, 0);
         }
@@ -211,11 +212,10 @@ public abstract class BaseFragment<P extends BaseContract.IPresenter> extends Rx
         mIsFirstVisible = true;
 
         unbinder.unbind();
-        if (getPresent() != null) {
-            getPresent().detachView();
+        if (getPresenter() != null) {
+            getPresenter().detachView();
         }
         p = null;
     }
-
     protected abstract void initView(View rootView);
 }
