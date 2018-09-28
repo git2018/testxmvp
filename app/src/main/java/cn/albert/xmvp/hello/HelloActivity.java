@@ -7,7 +7,7 @@ import butterknife.BindView;
 import cn.albert.xmvp.R;
 import cn.albert.xmvp.base.BaseActivity;
 
-public class HelloActivity extends BaseActivity<HelloPresenter> implements HelloContract.View {
+public class HelloActivity extends BaseActivity<HelloPresenter> implements HelloContract.IView {
     @BindView(R.id.txt)
     TextView txt;
 
